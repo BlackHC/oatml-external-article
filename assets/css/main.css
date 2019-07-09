@@ -46,13 +46,13 @@
 
 /* Type */
 
-	html {
+	.oatml {
 		font-size: 13pt;
 	}
 
 		@media screen and (max-width: 1680px) {
 
-			html {
+			.oatml {
 				font-size: 11pt;
 			}
 
@@ -60,7 +60,7 @@
 
 		@media screen and (max-width: 1280px) {
 
-			html {
+			.oatml {
 				font-size: 11pt;
 			}
 
@@ -68,7 +68,7 @@
 
 		@media screen and (max-width: 980px) {
 
-			html {
+			.oatml {
 				font-size: 12pt;
 			}
 
@@ -76,7 +76,7 @@
 
 		@media screen and (max-width: 736px) {
 
-			html {
+			.oatml {
 				font-size: 12pt;
 			}
 
@@ -84,7 +84,7 @@
 
 		@media screen and (max-width: 480px) {
 
-			html {
+			.oatml {
 				font-size: 12pt;
 			}
 
@@ -133,13 +133,13 @@
 
 /* Icon */
 
-	.oatml-icon {
+	.oatml .oatml-icon {
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
 	}
 
-		.oatml-icon:before {
+.oatml .oatml-icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
 			font-family: FontAwesome;
@@ -148,7 +148,7 @@
 			text-transform: none !important;
 		}
 
-		.oatml-icon > .oatml-label {
+.oatml .oatml-icon > .oatml-label {
 			display: none;
 		}
 
