@@ -10,48 +10,17 @@
 
 /* Reset */
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	body {
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
-		font: inherit;
 		vertical-align: baseline;
-	}
-
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-		display: block;
-	}
-
-	body {
-		line-height: 1;
-	}
-
-	ol, ul {
-		list-style: none;
-	}
-
-	blockquote, q {
-		quotes: none;
-	}
-
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
-
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
-
-	body {
 		-webkit-text-size-adjust: none;
 	}
 
 /* Box Model */
 
-	*, *:before, *:after {
+	.oatml *, .oatml *:before, .oatml *:after {
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -74,18 +43,6 @@
 		}
 
 	}
-
-
-		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
-			-moz-animation: none !important;
-			-webkit-animation: none !important;
-			-ms-animation: none !important;
-			animation: none !important;
-			-moz-transition: none !important;
-			-webkit-transition: none !important;
-			-ms-transition: none !important;
-			transition: none !important;
-		}
 
 /* Type */
 
@@ -134,76 +91,42 @@
 		}
 
 
-	body, input, select, textarea {
+	.oatml {
 		font-family: "Poppins", sans-serif;
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 1.65;
 	}
 
-	a {
+	.oatml a {
 		text-decoration: underline;
 	}
 
-		a:hover {
+		.oatml a:hover {
 			text-decoration: none;
 		}
 
-	strong, b {
-		font-weight: 600;
-	}
-
-	em, i {
-		font-style: italic;
-	}
-
-
-	h1, h2, h3, h4, h5, h6 {
+	.oatml h2 {
 		font-weight: 300;
 		line-height: 1.5;
 		margin: 0 0 1rem 0;
 	}
 
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		.oatml h2 a {
 			color: inherit;
 			text-decoration: none;
 		}
 
-	h2 {
+	.oatml h2 {
 		font-size: 1.75rem;
 	}
 
-	h3 {
-		font-size: 1.35rem;
-	}
-
-	h4 {
-		font-size: 1.1rem;
-	}
-
-	h5 {
-		font-size: 0.9rem;
-	}
-
-	h6 {
-		font-size: 0.7rem;
-	}
-
-
-.align-center {
-		text-align: center;
-	}
-
-
-a {
+	.oatml a {
 		color: #2b8cbe;
 	}
 
-	strong, b {
-		color: #555;
-	}
 
-	h1, h2, h3, h4, h5, h6 {
+	.oatml h2 {
 		color: #555;
 	}
 
@@ -428,7 +351,6 @@ a {
 			transition: color 0.2s ease-in-out;
 			display: inline-block;
 			padding: 0 0.75em;
-			color: inherit;
 			text-decoration: none;
 			color: #FFF;
 		}
