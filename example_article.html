@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Andreas Kirsch*" />
+  <meta name="author" content="Joost van Amersfoort*" />
+  <meta name="author" content="Yarin Gal" />
+  <title>BatchBALD</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="example_article.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link rel="stylesheet" href="oatml-assets/css/main.css"/>
+  <link rel="apple-touch-icon-precomposed" href="oatml-assets/images/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" href="oatml-assets/images/apple-touch-icon-114x114.png">
+  <link rel="shortcut icon" href="oatml-assets/images/favicon.ico">
+</head>
+<body>
+<!-- Header -->
+<header id="oatml-header" class="oatml oatml-alt">
+    <div class="oatml-logo">
+        <img src="oatml-assets/images/cs_logo.png" class="oatml-ox-link" style="height: 58px; vertical-align: top !important"
+             alt="University of Oxford Department of Computer Science" usemap="#compscimap"/>
+        <map name="compscimap" id="compscimap">
+            <area shape="rect" coords="0,0,55,55" href="http://www.ox.ac.uk/" alt="University of Oxford"
+                  title="University of Oxford"/>
+            <area shape="rect" coords="65,0,170,55" href="http://www.cs.ox.ac.uk/"
+                  alt="Department of Computer Science - Home" title="Department of Computer Science - Home"/>
+        </map>
+        <a href="http://oatml.cs.ox.ac.uk" class="oatml-group-title-link">
+            <img src="oatml-assets/images/logo.png" style="height: 3em; vertical-align: middle;" alt="Group Home">
+            Group Home
+        </a>
+        <a href="http://oatml.cs.ox.ac.uk" class="oatml-group-title-link-short">
+            Home
+        </a>
+    </div>
+</header>
+
+<header class="oatml oatml-wrapper oatml-style3 oatml-pageheader">
+    <div class="oatml-inner">
+        <header style="text-align: center;">
+            <p>Oxford Applied and Theoretical Machine Learning Group</p>
+            <h2><a href="http://oatml.cs.ox.ac.uk/blog.html">OATML</a></h2>
+        </header>
+    </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">BatchBALD</h1>
+<p class="author">Andreas Kirsch*</p>
+<p class="author">Joost van Amersfoort*</p>
+<p class="author">Yarin Gal</p>
+</header>
+<h2 id="active-learning">Active Learning</h2>
+<!-- TLDR why: active learning and BALD -->
+<div>
+<p>Data efficiency is a key problem in deep learning. While excellent performance can be obtained using state-of-the-art architectures, they are often data-hungry.</p>
+<p>Active Learning (AL) is a powerful technique to reduce this. Instead of collecting and labelling a large dataset, which comes at a significant expense, one iteratively acquires labels from an expert only for the most informative data points in the pool of available data points. After each such acquisition, the newly labelled data point is added to the training set and the deep learning model is retrained. The process is repeated until a suitable level of accuracy is achieved while trying to minimise the number of acquisitions.</p>
+<p>The informativeness of unlabelled points is assessed by an acquisition function, such as BALD TK. BALD is based on mutual information from information theory and scores a data point based on how well it informs us about the model parameter distribution. This assumes a Bayesian setting where we have a distribution over the model parameters that gets updated as we train on new data.</p>
+<!-- TLDR why: batches and individual points and topk -->
+<p>In practical AL applications, batches of data points are acquired during each acquisition step instead of individual data points in order to reduce the number of times the model is retrained and expert-time is requested.</p>
+</div>
+<pre><code>mycaption &lt;- &quot;*Idealised acquisitions of * BALD *and* BatchBALD*.* If a dataset
+        were to contain many (near) replicas for each data point, then BALD would select
+        all replicas of a single informative data point at the expense of other
+        informative data points, wasting data efficiency.&quot;
+knitr::include_graphics(&quot;assets/acquisition_visualisation.svg&quot;)</code></pre>
+<p>In Gal et al <span class="citation" data-cites="gal2017deep">[@gal2017deep]</span>, batch acquisition simply acquires the top <em>b</em> points with the highest BALD acquisition score. However, this naive approach leads to acquiring points that are individually very informative, but not necessarily so jointly, and thus degrade performance.</p>
+<p>In our ArXiv paper TK, we instead propose an extension of BALD that scores points jointly (BatchBALD) and is also grounded in information theory.</p>
+<p>Our implementation is available on https://github.com/BlackHC/BatchBALD.</p>
+<div class="l-page">
+<pre><code>mycaption &lt;- &quot;*Idealised acquisitions of * BALD *and* BatchBALD*.* If a dataset
+        were to contain many (near) replicas for each data point, then BALD would select
+        all replicas of a single informative data point at the expense of other
+        informative data points, wasting data efficiency.&quot;
+knitr::include_graphics(&quot;assets/acquisition_visualisation.svg&quot;, dpi=350)</code></pre>
+<pre><code>mycaption &lt;- &quot;*Idealised acquisitions of * BALD *and* BatchBALD*.* If a dataset
+        were to contain many (near) replicas for each data point, then BALD would select
+        all replicas of a single informative data point at the expense of other
+        informative data points, wasting data efficiency.&quot;
+knitr::include_graphics(&quot;assets/acquisition_visualisation.svg&quot;, dpi=350)</code></pre>
+</div>
+<!-- Contact -->
+<section class="oatml oatml-wrapper oatml-style3">
+    <div class="oatml-inner">
+        <footer>
+            <div class="oatml-container" style="text-align: center">
+                <ul class="oatml-icons">
+                    <li><a href="https://twitter.com/OATML_Oxford" target="_blank" class="oatml-icon fa-twitter"><span class="oatml-label">Twitter</span></a>
+                    </li>
+                    <li><a href="https://github.com/OATML" target="_blank" class="oatml-icon fa-github"><span
+                            class="oatml-label">Github</span></a></li>
+                    <li><a href="mailto:oatml@cs.ox.ac.uk" class="oatml-icon fa-envelope-o"><span class="oatml-label">Email</span></a></li>
+                </ul>
+            </div>
+            <p></p>
+        </footer>
+    </div>
+</section>
+</body>
+</html>

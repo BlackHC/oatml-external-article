@@ -1,0 +1,29 @@
+<!-- Header -->
+<header id="oatml-header" class="oatml oatml-alt">
+    <div class="oatml-logo">
+        <img src="oatml-assets/images/cs_logo.png" class="oatml-ox-link" style="height: 58px; vertical-align: top !important"
+             alt="University of Oxford Department of Computer Science" usemap="#compscimap"/>
+        <map name="compscimap" id="compscimap">
+            <area shape="rect" coords="0,0,55,55" href="http://www.ox.ac.uk/" alt="University of Oxford"
+                  title="University of Oxford"/>
+            <area shape="rect" coords="65,0,170,55" href="http://www.cs.ox.ac.uk/"
+                  alt="Department of Computer Science - Home" title="Department of Computer Science - Home"/>
+        </map>
+        <a href="http://oatml.cs.ox.ac.uk" class="oatml-group-title-link">
+            <img src="oatml-assets/images/logo.png" style="height: 3em; vertical-align: middle;" alt="Group Home">
+            Group Home
+        </a>
+        <a href="http://oatml.cs.ox.ac.uk" class="oatml-group-title-link-short">
+            Home
+        </a>
+    </div>
+</header>
+
+<header class="oatml oatml-wrapper oatml-style3 oatml-pageheader">
+    <div class="oatml-inner">
+        <header style="text-align: center;">
+            <p>Oxford Applied and Theoretical Machine Learning Group</p>
+            <h2><a href="http://oatml.cs.ox.ac.uk/blog.html">OATML</a></h2>
+        </header>
+    </div>
+</header>
